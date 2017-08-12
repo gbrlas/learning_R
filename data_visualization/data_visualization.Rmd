@@ -80,3 +80,55 @@ ggplot(data) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
 ggplot(data) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv, color = drv), method = loess) + geom_point(mapping = aes(x = displ, y = hwy, color = drv))
 ```
 
+```{r}
+ggplot(data) + geom_smooth(mapping = aes(x = displ, y = hwy, color = drv), show.legend = F, method = loess)
+```
+
+```{r}
+ggplot(data) + geom_point(mapping = aes(x = displ, y = hwy)) + geom_smooth(mapping = aes( x = displ, y = hwy))
+```
+
+Bolji način za izvesti ovo gore - nema duplikacije koda!
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point() + geom_smooth(method = loess)
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = class)) + geom_smooth()
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = class)) + geom_smooth(data = filter(data, class == "suv"), color = "red")
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy, color = drv)) + geom_point() + geom_smooth(se = F)
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point() + geom_smooth(se = F, method = loess) 
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy, group = drv)) + geom_point() + geom_smooth(se = F, method = loess)
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy, color = drv)) + geom_point() + geom_smooth(se = F, method = loess)
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = drv)) + geom_smooth(se = F, method = loess)
+```
+
+```{r}
+ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = drv)) + geom_smooth(mapping = aes(linetype = drv), se = F, method = loess)
+```
+
+# Statistical transformations
+
+```{r}
+
+```
+
