@@ -129,6 +129,87 @@ ggplot(data, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color
 # Statistical transformations
 
 ```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = cut))
+```
 
+```{r}
+ggplot(data = diamonds) + stat_count(mapping = aes(x = cut))
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, y = ..prop.., group = 1))
+```
+
+```{r}
+ggplot(data = diamonds) + stat_summary(mapping = aes(x = cut, y = depth),
+                                       fun.ymin = min,
+                                       fun.ymax = max,
+                                       fun.y = median)
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, y = ..prop..))
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = color, y = ..prop..))
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = clarity))
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = clarity, position = "identity", alpha = 1/5))
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = clarity), position = "fill")
+```
+
+```{r}
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
+```
+
+#Jittering - adding random noise to make graphs more revealing at large scales
+
+
+```{r}
+ggplot(data = mpg) + geom_jitter(mapping = aes(x = displ, y = hwy))
+```
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + geom_jitter(mapping = aes(color = "red")) + geom_count(mapping = aes(alpha = 4/5))
+```
+#Box plots
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = factor(cyl), y = hwy)) + geom_boxplot()
+```
+
+#Coordinate systems
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + geom_boxplot()
+```
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + geom_boxplot() + coord_flip()
+```
+
+```{r}
+bar <- ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = cut), show.legend = F, width = 1) + theme(aspect.ratio = 1) + labs(x = NULL, y = NULL)
+```
+
+```{r}
+bar
+```
+
+```{r}
+bar + coord_flip()
+```
+
+```{r}
+bar + coord_polar()
 ```
 
