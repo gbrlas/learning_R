@@ -1,0 +1,86 @@
+---
+title: "Data transformation"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+```
+
+# Filtering with filter()
+
+```{r}
+filter(flights, month == 1, day == 1)
+```
+
+```{r}
+jan1 <- filter(flights, month == 1, day == 1)
+```
+
+```{r}
+(dec25 <- filter(flights, month == 12, day == 25))
+```
+
+```{r}
+filter(flights, month == 11 | month == 12)
+```
+
+```{r}
+(nov_dec <- filter(flights, month %in% c(11, 12)))
+```
+
+
+```{r}
+filter(flights, !(arr_delay > 120 | dep_delay > 120))
+```
+
+```{r}
+df <- tibble(x = c(1, NA, 3))
+filter(df, x > 1)
+filter(df, is.na(x) | x > 1)
+```
+
+```{r}
+filter(flights, arr_delay >= 120)
+```
+
+```{r}
+filter(flights, dest %in% c("IAH", "HOU"))
+```
+
+```{r}
+filter(flights, carrier %in% c("UA", "AE", "DE"))
+```
+
+```{r}
+filter(flights, month %in% c(7, 8, 9))
+```
+
+```{r}
+filter(flights, dep_delay <= 0, arr_delay >= 120)
+```
+
+```{r}
+filter(flights, dep_delay >= 60, dep_delay - arr_delay >= 30)
+```
+
+```{r}
+filter(flights, dep_time %in% seq(0, 60*6, 1))
+```
+
+```{r}
+filter(flights, between(dep_time, 0, 60*6))
+```
+
+```{r}
+filter(flights, is.na(dep_time))
+```
+
+# Arranging with arrange()
+
+```{r}
+
+```
+
