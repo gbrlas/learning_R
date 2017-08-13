@@ -117,4 +117,45 @@ arrange(flights, desc(air_time))
 
 # Selecting columns with select()
 
+```{r}
+select(flights, year, month, day)
+```
 
+```{r}
+select(flights, year:day)
+```
+
+```{r}
+select(flights, -(year:day))
+```
+
+```{r}
+select(flights, contains("delay"))
+```
+
+```{r}
+rename(flights, y = year, m = month, d = day)
+```
+
+```{r}
+select(flights, time_hour, air_time, everything())
+```
+
+```{r}
+select(flights, starts_with("dep"), starts_with("arr"))
+```
+
+```{r}
+select(flights, dep_time, dep_time)
+```
+
+```{r}
+vars <- c("year", "month", "day", "dep_delay", "arr_delay")
+select(flights, one_of(vars))
+```
+
+```{r}
+select(flights, contains("time"))
+```
+
+# Adding new variables with mutate()
