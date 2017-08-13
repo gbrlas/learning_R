@@ -171,7 +171,7 @@ ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = clarity), posit
 ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
 ```
 
-#Jittering - adding random noise to make graphs more revealing at large scales
+# Jittering - adding random noise to make graphs more revealing at large scales
 
 
 ```{r}
@@ -181,13 +181,13 @@ ggplot(data = mpg) + geom_jitter(mapping = aes(x = displ, y = hwy))
 ```{r}
 ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + geom_jitter(mapping = aes(color = "red")) + geom_count(mapping = aes(alpha = 4/5))
 ```
-#Box plots
+# Box plots
 
 ```{r}
 ggplot(data = mpg, mapping = aes(x = factor(cyl), y = hwy)) + geom_boxplot()
 ```
 
-#Coordinate systems
+# Coordinate systems
 
 ```{r}
 ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + geom_boxplot()
