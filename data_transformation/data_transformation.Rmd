@@ -81,6 +81,40 @@ filter(flights, is.na(dep_time))
 # Arranging with arrange()
 
 ```{r}
-
+arrange(flights, year, month, day)
 ```
+
+```{r}
+arrange(flights, desc(arr_delay))
+```
+
+```{r}
+df <- tibble(x = c(5, 2, NA))
+arrange(df, x)
+arrange(df, desc(x))
+```
+
+
+```{r}
+arrange(df, desc(is.na(x)))
+```
+
+```{r}
+arrange(flights, desc(dep_delay))
+```
+
+```{r}
+arrange(flights, dep_delay)
+```
+
+```{r}
+arrange(flights, air_time)
+```
+
+```{r}
+arrange(flights, desc(air_time))
+```
+
+# Selecting columns with select()
+
 
